@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Button } from 'antd'
 import logo from './logo.svg'
 import './App.css'
 
@@ -18,6 +19,7 @@ const App = () => {
         >
           Learn React
         </a>
+        <Button type="primary">Skip</Button>
       </header>
     </div>
   )
