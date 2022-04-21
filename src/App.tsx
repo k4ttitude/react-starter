@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react'
 import { Button } from 'antd'
 import logo from './logo.svg'
+import { useAuthStore } from './store'
 import './App.css'
 
 const App = () => {
+  const state = useAuthStore()
+  // @ts-ignore
+  const { user, increasePopulation } = state
+  console.log(user)
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,7 +25,9 @@ const App = () => {
         >
           Learn React
         </a>
-        <Button type="primary">Skip</Button>
+        <Button type="primary" onClick={increasePopulation}>
+          Skip
+        </Button>
       </header>
     </div>
   )
