@@ -27,5 +27,6 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/function-component-definition': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
+    'organize-imports/organize-imports': 'error',
   },
 }
