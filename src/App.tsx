@@ -7,6 +7,7 @@ import Pokemons from './pages/Pokemons'
 import { useAuthStore } from './store'
 import logo from './logo.svg'
 import './App.css'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 
 const queryClient = new QueryClient()
 
@@ -22,7 +23,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         <header className="App-header">
-          <Row className="w-full">
+          <Row className="w-full h-screen">
             <Col
               span={8}
               className="flex flex-col justify-center items-start pl-8"
