@@ -10,21 +10,26 @@ const wait = (callback: () => void, timeout: number): Promise<void> =>
     }, timeout)
   })
 
+export enum UserRoles {
+  ADMIN = 'admin',
+  USER = 'user',
+}
+
+export type User = { id: number; name: string; role: UserRoles }
+
 type AuthStore = {
   bears: number
-  user: { id: number; name: string }
   increasePopulation: () => void
 
-  isLoggedIn: boolean
+  user?: User
   loading: boolean
-  login: () => Promise<void>
+  login: (u: User) => Promise<void>
   logout: () => void
 }
 
 export const useAuthStore = create<AuthStore>()(
   persist((set, get) => ({
     bears: 0,
-    user: { id: 123, name: 'John Doe' },
     increasePopulation: () =>
       set(
         produce(state => {
@@ -33,16 +38,15 @@ export const useAuthStore = create<AuthStore>()(
         })
       ),
 
-    isLoggedIn: false,
     loading: false,
-    login: async () => {
+    login: async (_user: User) => {
       set({ loading: true })
       try {
-        await wait(() => set({ isLoggedIn: true }), 1000)
+        await wait(() => set({ user: _user }), 1000)
       } finally {
         set({ loading: false })
       }
     },
-    logout: () => set({ isLoggedIn: false }),
+    logout: () => set({ user: undefined }),
   }))
 )
