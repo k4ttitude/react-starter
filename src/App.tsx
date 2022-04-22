@@ -19,7 +19,7 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p className="text-cyan-500">
-          Signed in as <b>{user.name}</b>
+          Signed in as <b>{user.username}</b>
         </p>
         <div className="flex gap-2">
           <Button type="primary" onClick={increasePopulation}>

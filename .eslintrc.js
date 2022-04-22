@@ -26,10 +26,12 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react/function-component-definition': 'off',
-    'import/prefer-default-export': 'off',
-    'no-param-reassign': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/prop-types': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/no-use-before-define': 'off',
+    'no-param-reassign': 'off',
+    'import/prefer-default-export': 'off',
     'simple-import-sort/imports': [
       'warn',
       {

@@ -15,7 +15,7 @@ export enum UserRoles {
   USER = 'user',
 }
 
-export type User = { id: number; name: string; role: UserRoles }
+export type User = { username: string; role: UserRoles }
 
 type AuthStore = {
   bears: number
