@@ -5,6 +5,7 @@ import { persist } from 'zustand/middleware'
 type AuthStore = {
   bears: number
   user: { id: number; name: string }
+  increasePopulation: () => void
 }
 
 export const useAuthStore = create<AuthStore>()(

@@ -1,14 +1,10 @@
-import { useEffect, useState } from 'react'
 import { Button } from 'antd'
 import logo from './logo.svg'
 import { useAuthStore } from './store'
 import './App.css'
 
 const App = () => {
-  const state = useAuthStore()
-  // @ts-ignore
-  const { user, increasePopulation } = state
-  console.log(user)
+  const increasePopulation = useAuthStore(state => state.increasePopulation)
 
   return (
     <div className="App">
