@@ -1,10 +1,19 @@
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Button } from 'antd'
 import logo from './logo.svg'
 import { useAuthStore } from './store'
 import './App.css'
 
 const App = () => {
-  const increasePopulation = useAuthStore(state => state.increasePopulation)
+  const { increasePopulation, logout, isLoggedIn } = useAuthStore()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/auth')
+    }
+  })
 
   return (
     <div className="App">
@@ -23,6 +32,9 @@ const App = () => {
         </a>
         <Button type="primary" onClick={increasePopulation}>
           Skip
+        </Button>
+        <Button type="primary" onClick={logout}>
+          Logout
         </Button>
       </header>
     </div>
