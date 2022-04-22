@@ -3,5 +3,22 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true
+  },
+  // twin.macro
+  "scss.validate": false,
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": true
+  },
+  "editor.autoClosingQuotes": "always",
+  "tailwindCSS.experimental.classRegex": [
+    "className:\\s*\"([^\"]*)", // className: "..."
+    "className:\\s*'([^']*)", // className: '...'
+    "className:\\s*`([^`]*)" // className: `...`
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
   }
 }

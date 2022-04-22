@@ -29,6 +29,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-param-reassign': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-use-before-define': 'off',
     'simple-import-sort/imports': [
       'warn',
       {
