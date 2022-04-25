@@ -7,7 +7,7 @@ import Pokemons from './pages/Pokemons'
 import { useAuthStore } from './store'
 import logo from './logo.svg'
 import './App.css'
-import 'react-perfect-scrollbar/dist/css/styles.css'
+import 'simplebar/dist/simplebar.min.css'
 
 const queryClient = new QueryClient()
 
