@@ -1,21 +1,13 @@
 import { useRef } from 'react'
-import { useQuery } from 'react-query'
 import { Button, Spin } from 'antd'
-import { AxiosResponse } from 'axios'
 import SimpleBar from 'simplebar-react'
 import styled from 'styled-components'
-import { axiosInstance } from '../../apis/instance'
-
-type Pokemon = {
-  name: string
-  url: string
-}
+import { useGetPokemonsQuery } from '../../apis'
 
 const Pokemons = () => {
-  const { data, isLoading } = useQuery<AxiosResponse<{ results: [Pokemon] }>>(
-    ['getPokemons'],
-    () => axiosInstance.get('pokemon')
-  )
+  const { data, isLoading } = useGetPokemonsQuery({
+    staleTime: 10000,
+  })
 
   const scrollRef = useRef<HTMLElement>()
   const goToTop = () => {
