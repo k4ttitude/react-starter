@@ -1,13 +1,13 @@
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Link, Navigate, Route, Routes } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Button, Col, Row } from 'antd'
 import styled from 'styled-components'
+import './styles'
 import { useAbilities } from './hooks/useAbilities'
-import Pokemons from './pages/Pokemons'
+import AppRoutes from './pages/AppRoutes'
+import AppLayout from './layout'
 import { useAuthStore } from './store'
-import logo from './logo.svg'
 import './App.css'
-import 'simplebar/dist/simplebar.min.css'
 
 const queryClient = new QueryClient()
 
@@ -21,47 +21,34 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <header className="App-header">
-          <Row className="w-full h-screen">
-            <Col
-              span={8}
-              className="flex flex-col justify-center items-start pl-8"
-            >
-              <MenuItem to="">Home</MenuItem>
-              <MenuItem to="pokemons">Pokemons</MenuItem>
-              {abilities.can('read', 'users') && (
-                <MenuItem to="users">Users</MenuItem>
-              )}
-              <div className="flex gap-2 mt-4">
-                <Button type="primary" onClick={increasePopulation}>
-                  Skip
-                </Button>
-                <Button type="primary" onClick={logout}>
-                  Logout
-                </Button>
-              </div>
-            </Col>
-            <Col span={16}>
-              <Routes>
-                <Route
-                  path="/"
-                  element={
-                    <>
-                      <img src={logo} className="App-logo" alt="logo" />
-                      <p className="text-cyan-500">
-                        Signed in as <b>{user.username}</b>
-                      </p>
-                    </>
-                  }
-                />
-                <Route path="pokemons/*" element={<Pokemons />} />
-                <Route path="users/*" element={<div>Users</div>} />
-              </Routes>
-            </Col>
-          </Row>
-        </header>
-      </div>
+      <AppLayout>
+        <Row className="w-full h-full">
+          <Col
+            span={8}
+            className="flex flex-col justify-center items-start pl-8"
+          >
+            <MenuItem to="">Home</MenuItem>
+            <MenuItem to="pokemons">Pokemons</MenuItem>
+            {abilities.can('read', 'users') && (
+              <MenuItem to="users">Users</MenuItem>
+            )}
+            <div className="flex gap-2 mt-4">
+              <Button type="primary" onClick={increasePopulation}>
+                Skip
+              </Button>
+              <Button type="primary" onClick={logout}>
+                Logout
+              </Button>
+            </div>
+          </Col>
+          <Col
+            span={16}
+            className="flex flex-col justify-center overflow-hidden"
+          >
+            <AppRoutes />
+          </Col>
+        </Row>
+      </AppLayout>
     </QueryClientProvider>
   )
 }

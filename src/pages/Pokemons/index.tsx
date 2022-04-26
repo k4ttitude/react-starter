@@ -18,7 +18,7 @@ const Pokemons = () => {
   }
 
   return (
-    <div className="relative h-screen flex flex-col items-center pb-8">
+    <div className="relative h-96 flex flex-col items-center pb-8">
       <h1 className="text-cyan-200">Pokemons</h1>
       <Button onClick={goToTop}>Top</Button>
       <div className="flex-1 overflow-auto">
