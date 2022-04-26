@@ -1,7 +1,10 @@
+import React, { Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import { Spin } from 'antd'
 import { useAuthStore } from '../store'
-import Pokemons from './Pokemons'
 import logo from '../logo.svg'
+
+const MasterData = React.lazy(() => import('./MasterData'))
 
 const AppRoutes = () => {
   const { user } = useAuthStore()
@@ -19,8 +22,15 @@ const AppRoutes = () => {
           </>
         }
       />
-      <Route path="pokemons/*" element={<Pokemons />} />
-      <Route path="users/*" element={<div>Users</div>} />
+      <Route
+        path="/menu/*"
+        element={
+          <Suspense fallback={<Spin />}>
+            <MasterData />
+          </Suspense>
+        }
+      />
+      <Route path="/users/*" element={<div>Users</div>} />
     </Routes>
   )
 }

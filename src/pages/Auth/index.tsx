@@ -19,7 +19,7 @@ const Auth: React.FC = () => {
   const { control, handleSubmit, watch } = formMethods
 
   useEffect(() => {
-    if (user) navigate('/')
+    if (user) navigate('/', { replace: true })
   }, [user, navigate])
 
   const handleLogin = handleSubmit(data => {

@@ -29,6 +29,7 @@ specifiers:
   immer: ^9.0.12
   postcss: ^8.4.12
   prettier: ^2.6.2
+  rc-menu: ^9.5.5
   react: ^18.0.0
   react-dom: ^18.0.0
   react-hook-form: ^7.30.0
@@ -55,6 +56,7 @@ dependencies:
   antd: 4.20.0_zpnidt7m3osuk7shl3s4oenomq
   axios: 0.26.1
   immer: 9.0.12
+  rc-menu: 9.5.5_zpnidt7m3osuk7shl3s4oenomq
   react: 18.0.0
   react-dom: 18.0.0_react@18.0.0
   react-hook-form: 7.30.0_react@18.0.0

@@ -4,7 +4,7 @@ import SimpleBar from 'simplebar-react'
 import styled from 'styled-components'
 import { useGetPokemonsQuery } from '../../apis'
 
-const Pokemons = () => {
+const MasterData = () => {
   const { data, isLoading } = useGetPokemonsQuery({
     staleTime: 10000,
   })
@@ -37,7 +37,7 @@ const Pokemons = () => {
   )
 }
 
-export default Pokemons
+export default MasterData
 
 const Item = styled.a.attrs(() => ({
   className: 'cursor-pointer hover:text-cyan-200',
