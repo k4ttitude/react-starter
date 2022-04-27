@@ -1,21 +1,30 @@
 import { PropsWithChildren } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import AppMenu from './App'
+import AppMenu from './AppMenu'
+import MasterDataMenu from './MasterDataMenu'
 
 type Props = PropsWithChildren<{}>
 
 const AppLayout: React.FC<Props> = ({ children }) => {
+  const navigate = useNavigate()
+  const goToRoot = () => navigate('/')
+
   return (
     <Container>
       <Header>
-        <span className="text-2xl font-bold text-white">SkyOffice</span>
+        <span
+          className="text-2xl font-bold text-white cursor-pointer"
+          onClick={goToRoot}
+        >
+          SkyOffice
+        </span>
       </Header>
       <section className="flex flex-auto flex-row">
         <SideBar>
           <Routes>
             <Route path="/" element={<AppMenu />} />
-            <Route path="/menu/*" element={<Link to="/">Menu khac</Link>} />
+            <Route path="/menu/*" element={<MasterDataMenu />} />
           </Routes>
         </SideBar>
         <Content>{children}</Content>
@@ -31,7 +40,7 @@ const Container = styled.section.attrs({
 })``
 
 const Header = styled.header.attrs({
-  className: 'flex h-14 p-3 bg-red-400',
+  className: 'h-14 flex items-center px-5 bg-red-400',
 })`
   flex: 0 0 auto;
 `

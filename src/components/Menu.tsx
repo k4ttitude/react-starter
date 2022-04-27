@@ -1,13 +1,13 @@
-import Menu, { MenuItem } from 'rc-menu'
+import RCMenu, { MenuItem as RCMenuItem } from 'rc-menu'
 import styled from 'styled-components'
 
-export const SMenu = styled(Menu)`
+export const Menu = styled(RCMenu)`
   height: 100%;
   border: 0;
   border-right: 1px solid #d6dade;
 `
 
-export const SMenuItem = styled(MenuItem)`
+export const MenuItem = styled(RCMenuItem)`
   cursor: pointer;
   color: #717d8a;
   &.rc-menu-item-selected {
